@@ -1,3 +1,4 @@
+import { Auth0Provider } from "@bcwdev/auth0provider";
 import { postsService } from "../services/PostsService.js";
 import BaseController from "../utils/BaseController.js";
 
@@ -7,7 +8,7 @@ export class PostsController extends BaseController {
     this.router
       .get('', this.getPosts)
       .get('/:postId', this.getPostById)
-      // .use(Auth0Provider.getAuthorizedUserInfo)
+      .use(Auth0Provider.getAuthorizedUserInfo)
       .post('', this.createPosts)
       .delete('', this.removePostById)
   }
