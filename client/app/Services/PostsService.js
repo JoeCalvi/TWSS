@@ -15,10 +15,8 @@ class PostsService {
   }
   async getAllPosts() {
     const res = await server.get('api/posts')
-    console.log('Getting All Posts', res.data);
-  }
-  constructor(){
-
+    appState.posts = res.data.map(p => new Post(p))
+    console.log('Getting All Posts', appState.posts);
   }
 }
 
