@@ -15,7 +15,7 @@ export class CommentsController extends BaseController{
   async getPostComments(req, res, next){
     try {
       const postId = req.params.postId
-      const comments = commentsService.getPostComments(postId)
+      const comments = await commentsService.getPostComments(postId)
       res.send(comments)
     } catch (error) {
       next(error)
@@ -25,7 +25,7 @@ export class CommentsController extends BaseController{
   async getSpecificComment(req, res, next){
     try {
       const commentId = req.params.commentId
-      const comment = commentsService.getSpecificComment(commentId)
+      const comment = await commentsService.getSpecificComment(commentId)
       res.send(comment)
     } catch (error) {
       next(error)
@@ -35,7 +35,7 @@ export class CommentsController extends BaseController{
   async createComment(req, res, next){
     try {
       const commentData = req.body
-      const comment = commentsService.createComment(commentData)
+      const comment = await commentsService.createComment(commentData)
       res.send(comment)
     } catch (error) {
       next(error)
@@ -45,7 +45,8 @@ export class CommentsController extends BaseController{
   async deleteComment(req, res, next){
     try {
       const commentId = req.params.commentId
-      const comment = commentsService
+      const comment = await commentsService.deleteComment(commentId)
+      res.send(comment)
     } catch (error) {
       
     }

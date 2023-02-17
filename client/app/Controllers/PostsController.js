@@ -33,5 +33,15 @@ export class PostsController{
       Pop.error(error.message)
     }
   }
+
+  async setActivePost(postId){
+    try {
+      await postsService.setActivePost(postId)
+      
+    } catch (error) {
+      console.error(error)
+      Pop.error(error.message)
+    }
+  }
 }
 

@@ -2,6 +2,11 @@ import { dbContext } from "../db/DbContext.js"
 
 
 class CommentsService{
+  async deleteComment(commentId) {
+    const commentToDelete = await dbContext.Comments.findById(commentId)
+    await commentToDelete.remove()
+    return commentToDelete
+  }
   async getSpecificComment(commentId) {
     const comment = await dbContext.Comments.findById(commentId)
     return comment
