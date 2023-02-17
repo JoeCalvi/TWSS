@@ -1,3 +1,4 @@
+import { Auth0Provider } from "@bcwdev/auth0provider";
 import { postsService } from "../services/PostsService.js";
 import BaseController from "../utils/BaseController.js";
 
@@ -6,6 +7,8 @@ export class PostsController extends BaseController {
     super('api/posts')
     this.router
       .get('', this.getPosts)
+      .use(Auth0Provider.getAuthorizedUserInfo)
+      .post('', this.createPosts)
   }
   async getPosts(req, res, next) {
     try {
@@ -15,6 +18,14 @@ export class PostsController extends BaseController {
       next(error)
     }
   }
-
-
+  async createPosts(req, res, next) {
+    try {
+      const user = req.userInfo
+      req.body.posterId = user.id
+      const newPost = await postsService.createPosts(req.body)
+      return res.send(newPost)
+    } catch (error) {
+      next(error)
+    }
+  }
 }

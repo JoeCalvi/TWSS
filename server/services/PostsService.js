@@ -1,8 +1,12 @@
 import { dbContext } from "../db/DbContext.js"
 
 class PostsService {
-  getPosts() {
-    const posts = dbContext.Posts.find()
+  async createPosts(body) {
+    const newPost = await dbContext.Posts.create(body)
+    return newPost
+  }
+  async getPosts() {
+    const posts = await dbContext.Posts.find()
     return posts
   }
 
