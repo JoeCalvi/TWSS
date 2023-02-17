@@ -4,6 +4,9 @@ import { server } from "./AxiosService.js"
 
 
 class PostsService {
+  async setActivePost(postId) {
+    console.log("Active Post", postId);
+  }
   async createPost(postBody) {
     const res = await server.post('api/posts', postBody);
     console.log("Creating Post", res.data);
