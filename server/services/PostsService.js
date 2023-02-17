@@ -2,6 +2,14 @@ import { dbContext } from "../db/DbContext.js"
 import { BadRequest } from "../utils/Errors.js"
 
 class PostsService {
+  async removePostById(postId, posterId) {
+    const post = await this.getPostById(postId)
+    if (posterId != post.posterId) {
+      throw new BadRequest("Not your post")
+    }
+    await post.remove()
+    return post
+  }
   async getPostById(postId) {
     const post = await dbContext.Posts.findById(postId)
     // .populate('Poster', 'name picture')
