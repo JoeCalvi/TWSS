@@ -1,3 +1,4 @@
+import { Auth0Provider } from "@bcwdev/auth0provider"
 import { commentsService } from "../services/CommentsService.js"
 import BaseController from "../utils/BaseController.js"
 
@@ -8,6 +9,7 @@ export class CommentsController extends BaseController{
     this.router
     .get('/:postId/comments', this.getPostComments)
     .get('/:postId/comments/commentId', this.getSpecificComment)
+    .use(Auth0Provider.getAuthorizedUserInfo)
     .post('/:postId/comments', this.createComment)
     .delete('/:postId/comments/commentId', this.deleteComment)
   }
@@ -34,7 +36,9 @@ export class CommentsController extends BaseController{
 
   async createComment(req, res, next){
     try {
+      const user = req.userInfo
       const commentData = req.body
+      req.body.commenterId = user.id
       const comment = await commentsService.createComment(commentData)
       res.send(comment)
     } catch (error) {
@@ -44,8 +48,10 @@ export class CommentsController extends BaseController{
 
   async deleteComment(req, res, next){
     try {
+      const user = req.userInfo
+      const commenterId = user.id
       const commentId = req.params.commentId
-      const comment = await commentsService.deleteComment(commentId)
+      const comment = await commentsService.deleteComment(commentId, commenterId)
       res.send(comment)
     } catch (error) {
       
