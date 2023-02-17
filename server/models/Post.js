@@ -9,4 +9,11 @@ export const PostSchema = new Schema(
     tag: { type: String, enum: ["family", "house work", "friends", "job"], required: true }
 
   }, { timestamps: true, toJSON: { virtuals: true } }
-)
+);
+
+PostSchema.virtual('Poster', {
+  ref: 'Account',
+  justOne: true,
+  localField: 'Poster',
+  foreignField: '_id'
+})
