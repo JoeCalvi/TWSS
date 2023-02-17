@@ -30,12 +30,16 @@
           That's What She Said
         </h2>
         <div class="col-2 pe-2">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
           <div class="flex-grow-1 justify-content-end align-items-center d-flex" id="authstate"></div>
         </div>
       </nav>
     </div>
   </header>
-  <main id="main-body">
+  <main id="app">
     <div class="container-fluid">
       <div class="row justify-content-start align-items-center">
         <div class="col-8 my-3 ms-2 p-3 border border-dark rounded">
@@ -47,17 +51,46 @@
               <h4>
                 "What are you gonna want to do for dinner?"
               </h4>
-              <div>
-                <span class="mdi mdi-arrow-up-bold-outline"></span>
-              </div>
-              <div>
-                <span class="mdi mdi-arrow-down-bold-outline"></span>
+              <div class="text-end">
+                <div class="fs-3">
+                  <span class="mdi mdi-arrow-up-bold-outline"></span>
+                </div>
+                <div class="fs-3">
+                  <span class="mdi mdi-arrow-down-bold-outline"></span>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-6">
+          <form onsubmit="">
+            <div class="mb-3">
+              <label for="title" class="form-label">Post Title</label>
+              <input type="text" class="form-control" id="post-title" aria-describedby="post-title">
+            </div>
+            <div class="mb-3">
+              <label for="post-description" class="form-label">New Post</label>
+              <div>
+                <textarea name="post-description" id="post-description" cols="60" rows="10"></textarea>
+              </div>
+            </div>
+            <select class="form-select" aria-label="tag-select" id="tag-select">
+              <option selected>Select Tag</option>
+              <option value="family">One</option>
+              <option value="housework">Two</option>
+              <option value="friends">Three</option>
+              <option value="job">Three</option>
+            </select>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
   </main>
   <footer class="container-fluid bg-dark text-light">
     <div class="row text-center">
