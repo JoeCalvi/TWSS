@@ -68,32 +68,9 @@
       </div>
       <!-- STUB template for each post end -->
     </div>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-6">
-          <form onsubmit="app.postsController.createPost()">
-            <div class="mb-3">
-              <label for="title" class="form-label">Post Title</label>
-              <input type="text" class="form-control" id="post-title" aria-describedby="post-title">
-            </div>
-            <div class="mb-3">
-              <label for="post-description" class="form-label">New Post</label>
-              <div>
-                <textarea name="post-description" id="post-description" cols="60" rows="10"></textarea>
-              </div>
-            </div>
-            <select class="form-select" aria-label="tag-select" id="tag-select">
-              <option selected>Select Tag</option>
-              <option value="family">Family</option>
-              <option value="housework">housework</option>
-              <option value="friends">friends</option>
-              <option value="job">job</option>
-            </select>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
-        </div>
-      </div>
-    </div>
+    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+      aria-controls="offcanvasRight">Toggle right offcanvas</button>
+
 
   </main>
   <footer class="container-fluid bg-dark text-light">
@@ -103,6 +80,46 @@
       </div>
     </div>
   </footer>
+
+
+  <!-- SECTION offcanvas with form -->
+
+
+
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body" id="new-post-form">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-6">
+            <form onsubmit="app.postsController.createPost()">
+              <div class="mb-3">
+                <label for="title" class="form-label">Post Title</label>
+                <input type="text" class="form-control" id="post-title" aria-describedby="post-title">
+              </div>
+              <div class="mb-3">
+                <label for="post-description" class="form-label">New Post</label>
+                <div>
+                  <textarea name="post-description" id="post-description" cols="60" rows="10"></textarea>
+                </div>
+              </div>
+              <select class="form-select" aria-label="tag-select" id="tag-select">
+                <option selected>Select Tag</option>
+                <option value="family">Family</option>
+                <option value="housework">housework</option>
+                <option value="friends">friends</option>
+                <option value="job">job</option>
+              </select>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://cdn.auth0.com/js/auth0-spa-js/1.22/auth0-spa-js.production.js"></script>
