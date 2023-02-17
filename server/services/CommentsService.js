@@ -19,7 +19,7 @@ class CommentsService{
     return comment
   }
   async getPostComments(postId) {
-    const comments = await dbContext.Comments.find({postId})
+    const comments = await dbContext.Comments.find({postId}).populate('Commenter', 'name picture')
     return comments
   }
 
