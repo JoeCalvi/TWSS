@@ -98,15 +98,15 @@
             <form onsubmit="app.postsController.createPost()">
               <div class="mb-3">
                 <label for="title" class="form-label">Post Title</label>
-                <input type="text" class="form-control" id="post-title" aria-describedby="post-title">
+                <input type="text" class="form-control" name="title" id="title" aria-describedby="post-title">
               </div>
               <div class="mb-3">
-                <label for="post-description" class="form-label">New Post</label>
+                <label for="description" class="form-label">New Post</label>
                 <div>
-                  <textarea name="post-description" id="post-description" cols="60" rows="10"></textarea>
+                  <textarea name="description" id="description" cols="60" rows="10"></textarea>
                 </div>
               </div>
-              <select class="form-select" aria-label="tag-select" id="tag-select">
+              <select class="form-select" aria-label="tag-select" id="tag" name="tag">
                 <option selected>Select Tag</option>
                 <option value="family">Family</option>
                 <option value="housework">housework</option>
