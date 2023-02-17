@@ -7,7 +7,9 @@ export class CommentsController extends BaseController{
     super('api/posts')
     this.router
     .get('/:postId/comments', this.getPostComments)
+    .get('/:postId/comments/commentId', this.getSpecificComment)
     .post('/:postId/comments', this.createComment)
+    .delete('/:postId/comments/commentId', this.deleteComment)
   }
 
   async getPostComments(req, res, next){
@@ -20,6 +22,16 @@ export class CommentsController extends BaseController{
     }
   }
 
+  async getSpecificComment(req, res, next){
+    try {
+      const commentId = req.params.commentId
+      const comment = commentsService.getSpecificComment(commentId)
+      res.send(comment)
+    } catch (error) {
+      next(error)
+    }
+  }
+
   async createComment(req, res, next){
     try {
       const commentData = req.body
@@ -27,6 +39,15 @@ export class CommentsController extends BaseController{
       res.send(comment)
     } catch (error) {
       next(error)
+    }
+  }
+
+  async deleteComment(req, res, next){
+    try {
+      const commentId = req.params.commentId
+      const comment = commentsService
+    } catch (error) {
+      
     }
   }
 }

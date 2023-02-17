@@ -2,6 +2,10 @@ import { dbContext } from "../db/DbContext.js"
 
 
 class CommentsService{
+  async getSpecificComment(commentId) {
+    const comment = await dbContext.Comments.findById(commentId)
+    return comment
+  }
   async createComment(commentData) {
     const comment = await dbContext.Comments.create(commentData)
     return comment
