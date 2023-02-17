@@ -1,4 +1,5 @@
 import { dbContext } from "../db/DbContext.js"
+import { BadRequest } from "../utils/Errors.js"
 
 
 class CommentsService{
@@ -6,6 +7,8 @@ class CommentsService{
     const commentToDelete = await dbContext.Comments.findById(commentId)
     if(commentToDelete.commenterId == commenterId){
       await commentToDelete.remove()
+    }else{
+      throw new BadRequest("That's not your comment!")
     }
     return commentToDelete
   }

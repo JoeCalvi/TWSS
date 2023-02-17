@@ -9,7 +9,7 @@ export class CommentsController extends BaseController{
     this.router
     .get('/:postId/comments', this.getPostComments)
     .get('/:postId/comments/commentId', this.getSpecificComment)
-    .use(Auth0Provider.getAuthorizedUserInfo)
+    // .use(Auth0Provider.getAuthorizedUserInfo)
     .post('/:postId/comments', this.createComment)
     .delete('/:postId/comments/commentId', this.deleteComment)
   }
