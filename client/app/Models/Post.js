@@ -33,7 +33,8 @@ export class Post {
         <div class="col-12">
             <div class="row p-3">
                 <div class="col-2">
-                   <img src="${this.poster?.picture}" alt="" class="rounded-circle">
+                  <img src="${this.poster?.picture}" alt="" class="rounded-circle">
+                  <span class="fs-4 ps-3">${this.poster?.name}</span>
                 </div>
                 <div class="col-8 ps-3 d-flex justify-content-evenly align-items-center">
                     <div class="normal-text">
