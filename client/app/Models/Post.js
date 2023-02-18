@@ -43,8 +43,10 @@ export class Post {
             </div>
           </div>
           <div class="text-end mb-3">
+          <button class="btn btn-primary" title="New Comment" type="button"
+          aria-controls="offcanvasRight"><span class="mdi mdi-pencil-box-outline"></span></button>
             <button class="btn btn-danger" onclick="app.postsController.deletePost('${this.postId}')"><span class="mdi mdi-trash-can-outline"></span></button>
-          </div>
+            </div>
           <div class="row justify-content-start mb-3">
             <div class="col-2 ms-3">
               <img src="https://via.placeholder.com/50" alt="" class="rounded-circle">
@@ -60,8 +62,6 @@ export class Post {
           </div>
         </div>
         <div class="p-2">
-        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-          aria-controls="offcanvasRight"><span class="mdi mdi-pencil-box-outline"></span></button>
       </div>
       </div>
     `
