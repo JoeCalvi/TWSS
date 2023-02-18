@@ -14,6 +14,7 @@ class CommentsService{
   }
   async getSpecificComment(commentId) {
     const comment = await dbContext.Comments.findById(commentId)
+    .populate('Commenter', 'name picture')
     if(!comment){
       throw new BadRequest('Invalid Comment Id!')
     }
