@@ -10,7 +10,7 @@ export class PostsController extends BaseController {
       .get('/:postId', this.getPostById)
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post('', this.createPosts)
-      .delete('', this.removePostById)
+      .delete('/:postId', this.removePostById)
   }
 
   async getPosts(req, res, next) {
