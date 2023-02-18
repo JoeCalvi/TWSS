@@ -41,6 +41,15 @@ export class PostsController{
     }
   }
 
+  async deletePost(postId){
+    try {
+      await postsService.deletePost(postId)
+    } catch (error) {
+      console.error(error)
+      Pop.error(error.message)
+    }
+  }
+
   async setActivePost(postId){
     try {
       await postsService.setActivePost(postId)
