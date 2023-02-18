@@ -1,32 +1,34 @@
 
 import { appState } from "../AppState.js";
+import { Post } from "../Models/Post.js";
 import { postsService } from "../Services/PostsService.js";
 import { getFormData } from "../Utils/FormHandler.js";
 import { Pop } from "../Utils/Pop.js";
 import { setHTML } from "../Utils/Writer.js";
 
 
-function _drawAllPosts(){
+function _drawAllPosts() {
   let template = ''
   appState.posts.forEach(p => template += p.AllPostsTemplate);
   setHTML('main-body-content', template)
 }
 
-function _drawActivePost(){
+function _drawActivePost() {
   let activePost = appState.activePost
   // @ts-ignore
   setHTML('main-body-content', activePost.ActivePostTemplate)
-  
 }
 
-export class PostsController{
-  constructor(){
+
+
+export class PostsController {
+  constructor() {
     console.log("Hello from the PostsController");
     this.getAllPosts()
     appState.on('posts', _drawAllPosts)
   }
 
-  async getAllPosts(){
+  async getAllPosts() {
     try {
       await postsService.getAllPosts()
     } catch (error) {
@@ -35,11 +37,11 @@ export class PostsController{
     }
   }
 
-  show(){
+  show() {
     _drawAllPosts()
   }
 
-  async createPost(){
+  async createPost() {
     try {
       // @ts-ignore
       window.event.preventDefault();
@@ -53,7 +55,7 @@ export class PostsController{
     }
   }
 
-  async deletePost(postId){
+  async deletePost(postId) {
     try {
       await postsService.deletePost(postId)
     } catch (error) {
@@ -62,7 +64,7 @@ export class PostsController{
     }
   }
 
-  async setActivePost(postId){
+  async setActivePost(postId) {
     try {
       await postsService.setActivePost(postId)
       _drawActivePost()

@@ -25,6 +25,8 @@
           <img class="header-img ps-1 my-1 rounded-circle"
             src="https://storybookstorage.s3.amazonaws.com/items/images/000/132/271/original/Michael_scott_is_sad__85338d98a98a111918f1111318688123.png?1441814071"
             alt="" loading="lazy" onclick="app.postsController.show()">
+          <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+            aria-controls="offcanvasRight">Create Post</button>
         </div>
         <h2 class="col-8 text-center">
           That's What She Said
@@ -39,37 +41,41 @@
       </nav>
     </div>
   </header>
-  <main id="app">
-    <div class="container-fluid" id="main-body-content">
+  <main>
+    <div class="container-fluid">
       <!-- STUB template for each posts when displaying all posts -->
-      <!-- <div class="row justify-content-start align-items-center">
-        <div class="col-8 my-3 ms-2 p-3 border border-dark rounded">
-          <div class="row">
-            <div class="col-2">
-              <img src="https://via.placeholder.com/75" alt="" class="rounded-circle">
-            </div>
-            <div class="col-10 ps-3 d-flex justify-content-between align-items-center">
-              <div class="text-center">
-                <h4>
-                  "What are you gonna want to do for dinner?"
-                </h4>
-              </div>
-              <div class="text-center">
-                <div class="fs-3">
-                  <span class="mdi mdi-arrow-up-bold-outline"></span>
+      <div class="row">
+        <div class="col-12">
+          <div class="row justify-content-center align-items-center" id="main-body-content">
+            <!-- <div class="col-8 my-3 ms-2 p-3 border border-dark rounded">
+              <div class="row">
+                <div class="col-2">
+                  <img src="https://via.placeholder.com/75" alt="" class="rounded-circle">
                 </div>
-                <div class="fs-3">
-                  <span class="mdi mdi-arrow-down-bold-outline"></span>
+                <div class="col-10 ps-3 d-flex justify-content-between align-items-center">
+                  <div class="text-center">
+                    <h4>
+                      "What are you gonna want to do for dinner?"
+                    </h4>
+                  </div>
+                  <div class="text-center">
+                    <div class="fs-3">
+                      <span class="mdi mdi-arrow-up-bold-outline"></span>
+                    </div>
+                    <div class="fs-3">
+                      <span class="mdi mdi-arrow-down-bold-outline"></span>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
-      </div> -->
-      <!-- STUB template for each post end -->
-
-      <!-- STUB active post template -->
-      <!-- <div class="row">
+        <!-- STUB template for each post end -->
+      </div>
+    </div>
+    <!-- STUB active post template -->
+    <!-- <div class="row">
         <div class="col-12">
           <div class="row p-3">
             <div class="col-2">
@@ -120,12 +126,7 @@
           </div>
         </div>
       </div> -->
-      <!-- STUB end active post template -->
-
-      <div class="p-2">
-        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-          aria-controls="offcanvasRight"><span class="mdi mdi-pencil-box-outline"></span></button>
-      </div>
+    <!-- STUB end active post template -->
 
 
   </main>

@@ -69,8 +69,8 @@ export class Post {
 
   get AllPostsTemplate() {
     return `
-    <div class="row justify-content-start align-items-center">
-        <div class="col-8 my-3 ms-2 p-3 border border-dark rounded selectable" onclick="app.postsController.setActivePost('${this.postId}')">
+    
+        <div class="col-10 my-3 ms-2 p-3 border border-dark rounded selectable" onclick="app.postsController.setActivePost('${this.postId}')">
           <div class="row">
             <div class="col-2">
               <img src="${this.posterImage}" alt="" class="rounded-circle all-posts-img">
@@ -92,12 +92,7 @@ export class Post {
             </div>
           </div>
         </div>
-        <div class="p-2">
-        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-          aria-controls="offcanvasRight"><span class="mdi mdi-pencil-box-outline"></span></button>
-      </div>
-
-      </div>
+      
     `
   }
 }
