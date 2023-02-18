@@ -8,11 +8,12 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: $body-bg;
+  
 }
 
 main {
   flex-grow: 1;
+  background-color: #BDD5EA;
 }
 
 .header-img{
@@ -24,17 +25,33 @@ height: 85px;
 }
 
 header{
-  background-color: #1a1f3c;
+  background-color: #495867;
   color: white;
 }
 
 .header-text{
-  font-size: large;
+  font-size: 36px;
+  font-family: 'Carter One', cursive;
+  color: #FE5F55;
 }
 
 .all-posts-img{
   height: 75px;
   width: 75px;
 }
+
+.glass-card {
+  background: #F7F7FF(218, 217, 217, 0.4);
+  border: 1px solid #FE5F55;
+  backdrop-filter: blur(8px);
+  box-shadow: .5px .5px 2px #495867;
+}
+
+.new-post-form{
+  background-color: #495867;
+  color: #F7F7FF;
+  font-family: 'Carter One', cursive;
+}
+
 
 

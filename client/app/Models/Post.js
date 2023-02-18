@@ -76,7 +76,7 @@ export class Post {
   get AllPostsTemplate() {
     return `
     
-        <div class="col-10 my-3 ms-2 p-3 border border-dark rounded" onclick="app.postsController.setActivePost('${this.postId}')">
+        <div class="col-10 my-3 ms-2 p-3 glass-card rounded" onclick="app.postsController.setActivePost('${this.postId}')">
           <div class="row">
             <div class="col-2">
               <img src="${this.poster?.picture}" alt="" class="rounded-circle all-posts-img">

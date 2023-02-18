@@ -11,6 +11,9 @@
     integrity="sha512-fXnjLwoVZ01NUqS/7G5kAnhXNXat6v7e3M9PhoMHOTARUMCaf5qNO84r5x9AFf5HDzm3rEZD8sb/n6dZ19SzFA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="assets/style/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap" rel="stylesheet">
   <title>TWSS</title>
 </head>
 
@@ -19,9 +22,6 @@
     <div class="row m-0">
       <nav class="navbar navbar-dark navbar-expand text-light">
         <div class="col-2 d-flex justify-content-start align-items-center">
-          <div class="text-center ps-2">
-            <span class="logo-text">T<br>W<br>S<br>S</span>
-          </div>
           <img class="header-img ps-1 my-1 rounded-circle selectable"
             src="https://storybookstorage.s3.amazonaws.com/items/images/000/132/271/original/Michael_scott_is_sad__85338d98a98a111918f1111318688123.png?1441814071"
             alt="" loading="lazy" onclick="app.postsController.show()">
@@ -31,8 +31,8 @@
                 class="mdi mdi-pencil-box-outline"></span></button>
           </div>
         </div>
-        <h2 class="col-8 text-center">
-          That's What She Said
+        <h2 class="col-8 text-center header-text">
+          That's What She Said!
         </h2>
         <div class="col-2 pe-2">
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
@@ -146,7 +146,7 @@
 
 
 
-  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas offcanvas-end new-post-form" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
     <div class="offcanvas-header">
       <h5 class="offcanvas-title" id="offcanvasRightLabel">New Post</h5>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
