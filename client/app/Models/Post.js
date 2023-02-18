@@ -2,7 +2,7 @@
 
 
 export class Post {
-  constructor(data){
+  constructor(data) {
     this.postId = data.id
     this.title = data.title;
     this.description = data.description;
@@ -11,8 +11,8 @@ export class Post {
     this.tag = data.tag;
   }
 
-  get ActivePostTemplate(){
-    return`
+  get ActivePostTemplate() {
+    return `
     <div class="row">
         <div class="col-12">
           <div class="row p-3">
@@ -59,6 +59,10 @@ export class Post {
             </div>
           </div>
         </div>
+        <div class="p-2">
+        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+          aria-controls="offcanvasRight"><span class="mdi mdi-pencil-box-outline"></span></button>
+      </div>
       </div>
     `
   }
@@ -88,6 +92,11 @@ export class Post {
             </div>
           </div>
         </div>
+        <div class="p-2">
+        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+          aria-controls="offcanvasRight"><span class="mdi mdi-pencil-box-outline"></span></button>
+      </div>
+
       </div>
     `
   }
