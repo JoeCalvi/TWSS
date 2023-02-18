@@ -1,3 +1,4 @@
+
 import { appState } from "../AppState.js";
 import { postsService } from "../Services/PostsService.js";
 import { getFormData } from "../Utils/FormHandler.js";
@@ -9,6 +10,13 @@ function _drawAllPosts(){
   let template = ''
   appState.posts.forEach(p => template += p.AllPostsTemplate);
   setHTML('main-body-content', template)
+}
+
+function _drawActivePost(){
+  let activePost = appState.activePost
+  // @ts-ignore
+  setHTML('main-body-content', activePost.ActivePostTemplate)
+  
 }
 
 export class PostsController{
@@ -27,6 +35,10 @@ export class PostsController{
     }
   }
 
+  show(){
+    _drawAllPosts()
+  }
+
   async createPost(){
     try {
       // @ts-ignore
@@ -41,10 +53,19 @@ export class PostsController{
     }
   }
 
+  async deletePost(postId){
+    try {
+      await postsService.deletePost(postId)
+    } catch (error) {
+      console.error(error)
+      Pop.error(error.message)
+    }
+  }
+
   async setActivePost(postId){
     try {
       await postsService.setActivePost(postId)
-
+      _drawActivePost()
     } catch (error) {
       console.error(error)
       Pop.error(error.message)
