@@ -7,7 +7,6 @@ export const PostSchema = new Schema(
     description: { type: String, required: true, maxLength: 500 },
     posterId: { type: ObjectId, ref: 'Account', required: true },
     tag: { type: String, enum: ["family", "housework", "friends", "job"], required: true }
-
   }, { timestamps: true, toJSON: { virtuals: true } }
 );
 
