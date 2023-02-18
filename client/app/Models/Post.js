@@ -6,8 +6,9 @@ export class Post {
     this.postId = data.id
     this.title = data.title;
     this.description = data.description;
+    this.poster = data.Poster
     this.posterId = data.posterId;
-    this.posterImage = data.Poster.picture
+    // this.posterImage = data.Poster.picture
     this.tag = data.tag;
   }
 
@@ -17,7 +18,7 @@ export class Post {
         <div class="col-12">
           <div class="row p-3">
             <div class="col-2">
-              <img src="${this.posterImage}" alt="" class="rounded-circle">
+              <img src="${this.poster?.picture}" alt="" class="rounded-circle">
             </div>
             <div class="col-10 ps-3 d-flex justify-content-between align-items-center">
               <div class="text-center">
@@ -73,7 +74,7 @@ export class Post {
         <div class="col-10 my-3 ms-2 p-3 border border-dark rounded selectable" onclick="app.postsController.setActivePost('${this.postId}')">
           <div class="row">
             <div class="col-2">
-              <img src="${this.posterImage}" alt="" class="rounded-circle all-posts-img">
+              <img src="${this.poster?.picture}" alt="" class="rounded-circle all-posts-img">
             </div>
             <div class="col-10 ps-3 d-flex justify-content-between align-items-center">
               <div class="text-center">
