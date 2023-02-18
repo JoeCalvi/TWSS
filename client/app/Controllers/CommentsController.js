@@ -45,9 +45,11 @@ export class CommentsController{
 
   async deleteComment(commentId) {
     try {
-      await commentsService.deleteComment(commentId)
+      if(await Pop.confirm('Are you sure that you wish to delete your comment?')) {
+        await commentsService.deleteComment(commentId)
+      }
     } catch (error) {
-      console('[deleteComment error]')
+      console.error('[deleteComment error]')
       Pop.error(error)
     }
   }
