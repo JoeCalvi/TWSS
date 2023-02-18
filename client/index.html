@@ -25,8 +25,10 @@
           <img class="header-img ps-1 my-1 rounded-circle"
             src="https://storybookstorage.s3.amazonaws.com/items/images/000/132/271/original/Michael_scott_is_sad__85338d98a98a111918f1111318688123.png?1441814071"
             alt="" loading="lazy" onclick="app.postsController.show()">
-          <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-            aria-controls="offcanvasRight">Create Post</button>
+            <div class="ps-2">
+              <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+              aria-controls="offcanvasRight" title="Create Post"><span class="mdi mdi-pencil-box-outline"></span></button>
+            </div>
         </div>
         <h2 class="col-8 text-center">
           That's What She Said
@@ -160,15 +162,15 @@
               <div class="mb-3">
                 <label for="description" class="form-label">New Post</label>
                 <div>
-                  <textarea name="description" id="description" cols="60" rows="10"></textarea>
+                  <textarea name="description" id="description" cols="40" rows="10"></textarea>
                 </div>
               </div>
               <select class="form-select" aria-label="tag-select" id="tag" name="tag">
                 <option selected>Select Tag</option>
                 <option value="family">Family</option>
-                <option value="housework">housework</option>
-                <option value="friends">friends</option>
-                <option value="job">job</option>
+                <option value="housework">Housework</option>
+                <option value="friends">Friends</option>
+                <option value="job">Job</option>
               </select>
               <button type="submit" class="btn btn-primary">Submit</button>
             </form>
