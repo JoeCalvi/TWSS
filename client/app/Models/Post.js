@@ -47,18 +47,8 @@ export class Post {
           aria-controls="offcanvasRight"><span class="mdi mdi-pencil-box-outline"></span></button>
             <button class="btn btn-danger" onclick="app.postsController.deletePost('${this.postId}')"><span class="mdi mdi-trash-can-outline"></span></button>
             </div>
-          <div class="row justify-content-start mb-3">
-            <div class="col-2 ms-3">
-              <img src="https://via.placeholder.com/50" alt="" class="rounded-circle">
-            </div>
-            <div class="col-8">
-              <div class="text-start">
-                <p>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi officiis molestias mollitia? Rerum
-                  recusandae accusamus labore a, that's what she said!
-                </p>
-              </div>
-            </div>
+          <div class="row justify-content-start mb-3" id="comments-section">
+            
           </div>
         </div>
         <div class="p-2">
