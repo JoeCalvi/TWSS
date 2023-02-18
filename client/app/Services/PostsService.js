@@ -17,7 +17,10 @@ class PostsService {
     const res = await server.get('api/posts')
     appState.posts = res.data.map(p => new Post(p))
     console.log('Getting All Posts', appState.posts);
+    console.log('res data', res.data);
   }
+
+
 }
 
 export const postsService = new PostsService

@@ -3,19 +3,27 @@
 
 export class Post {
   constructor(data){
+    this.postId = data.id
     this.title = data.title;
     this.description = data.description;
     this.posterId = data.posterId;
+    this.posterImage = data.Poster.picture
     this.tag = data.tag;
+  }
+
+  get ActivePostTemplate(){
+    return`
+    
+    `
   }
 
   get AllPostsTemplate() {
     return`
     <div class="row justify-content-start align-items-center">
-        <div class="col-8 my-3 ms-2 p-3 border border-dark rounded">
+        <div class="col-8 my-3 ms-2 p-3 border border-dark rounded selectable" onclick="app.postsController.setActivePost('${this.postId}')">
           <div class="row">
             <div class="col-2">
-              <img src="https://via.placeholder.com/75" alt="" class="rounded-circle">
+              <img src="${this.posterImage}" alt="" class="rounded-circle">
             </div>
             <div class="col-10 ps-3 d-flex justify-content-between align-items-center">
               <div class="text-center">
