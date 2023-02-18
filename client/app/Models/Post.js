@@ -2,7 +2,7 @@
 
 
 export class Post {
-  constructor(data){
+  constructor(data) {
     this.title = data.title;
     this.description = data.description;
     this.posterId = data.posterId;
@@ -10,12 +10,12 @@ export class Post {
   }
 
   get AllPostsTemplate() {
-    return`
+    return `
     <div class="row justify-content-start align-items-center">
         <div class="col-8 my-3 ms-2 p-3 border border-dark rounded">
           <div class="row">
             <div class="col-2">
-              <img src="https://via.placeholder.com/75" alt="" class="rounded-circle">
+              <img src="https://via.placeholder.com/75" alt="" class="rounded-circle all-posts-img">
             </div>
             <div class="col-10 ps-3 d-flex justify-content-between align-items-center">
               <div class="text-center">
