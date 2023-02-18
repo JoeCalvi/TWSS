@@ -14,6 +14,6 @@ export const PostSchema = new Schema(
 PostSchema.virtual('Poster', {
   ref: 'Account',
   justOne: true,
-  localField: 'Poster',
+  localField: 'posterId',
   foreignField: '_id'
 })
