@@ -8,6 +8,7 @@ class CommentsService{
     const res = await server.post('api/comments', commentBody)
     appState.comments.push(new Comment(res.data))
     console.log(appState.comments);
+    appState.emit('comments')
   }
   async getCommentsByPostId(postId) {
     const res = await server.get(`api/posts/${postId}/comments`);
