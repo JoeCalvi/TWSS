@@ -12,11 +12,11 @@ export class Post {
     this.tag = data.tag;
   }
 
-get CommentFormTemplate() {
-  return `
+  get CommentFormTemplate() {
+    return `
   <form onsubmit="app.commentsController.createComment('${
-// @ts-ignore
-  appState.activePost.postId}'')">
+      // @ts-ignore
+      appState.activePost.postId}'')">
   <div class="mb-3">
     <label for="comment" class="form-label">New Comment</label>
     <input type="text" class="form-control" name="description" id="description" aria-describedby="comment">
@@ -24,7 +24,7 @@ get CommentFormTemplate() {
   <button type="submit" class="btn btn-primary" data-bs-dismiss="offcanvas">Submit</button>
 </form>
   `
-}
+  }
 
 
   get ActivePostTemplate() {
@@ -76,25 +76,27 @@ get CommentFormTemplate() {
   get AllPostsTemplate() {
     return `
     
-        <div class="col-10 my-3 ms-2 p-3 border border-dark rounded selectable" onclick="app.postsController.setActivePost('${this.postId}')">
+        <div class="col-10 my-3 ms-2 p-3 border border-dark rounded" onclick="app.postsController.setActivePost('${this.postId}')">
           <div class="row">
             <div class="col-2">
               <img src="${this.poster?.picture}" alt="" class="rounded-circle all-posts-img">
             </div>
-            <div class="col-10 ps-3 d-flex justify-content-between align-items-center">
+            <div class="col-9 ps-3 d-flex justify-content-between align-items-center selectable">
               <div class="text-center">
                 <h4>
                   ${this.title}
                 </h4>
               </div>
-              <div class="text-center">
-                <div class="fs-3">
-                  <span class="mdi mdi-arrow-up-bold-outline"></span>
+            </div>
+            <div class="col-1">
+                <div class="text-center">
+                  <div class="fs-3 selectable">
+                    <span class="mdi mdi-arrow-up-bold-outline"></span>
+                  </div>
+                  <div class="fs-3 selectable">
+                    <span class="mdi mdi-arrow-down-bold-outline"></span>
+                  </div>
                 </div>
-                <div class="fs-3">
-                  <span class="mdi mdi-arrow-down-bold-outline"></span>
-                </div>
-              </div>
             </div>
           </div>
         </div>
