@@ -6,7 +6,8 @@ import { server } from "./AxiosService.js";
 class CommentsService{
   async createComment(commentBody) {
     const res = await server.post('api/comments', commentBody)
-    console.log(res.data);
+    appState.comments.push(new Comment(res.data))
+    console.log(appState.comments);
   }
   async getCommentsByPostId(postId) {
     const res = await server.get(`api/posts/${postId}/comments`);

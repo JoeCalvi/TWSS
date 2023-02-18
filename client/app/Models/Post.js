@@ -1,3 +1,4 @@
+import { appState } from "../AppState.js";
 
 
 
@@ -10,6 +11,21 @@ export class Post {
     this.posterId = data.posterId;
     this.tag = data.tag;
   }
+
+get CommentFormTemplate() {
+  return `
+  <form onsubmit="app.commentsController.createComment('${
+// @ts-ignore
+  appState.activePost.postId}'')">
+  <div class="mb-3">
+    <label for="comment" class="form-label">New Comment</label>
+    <input type="text" class="form-control" name="description" id="description" aria-describedby="comment">
+  </div>
+  <button type="submit" class="btn btn-primary" data-bs-dismiss="offcanvas">Submit</button>
+</form>
+  `
+}
+
 
   get ActivePostTemplate() {
     return `

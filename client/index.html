@@ -187,8 +187,8 @@
     <div class="offcanvas-header">
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
-    <div class="offcanvas-body small">
-      <form onsubmit="app.commentsController.createComment()">
+    <div class="offcanvas-body small" id="commentBody">
+      <form onsubmit="app.commentsController.createComment(`${appState.activePost.postId}`)">
         <div class="mb-3">
           <label for="comment" class="form-label">New Comment</label>
           <input type="text" class="form-control" name="description" id="description" aria-describedby="comment">
