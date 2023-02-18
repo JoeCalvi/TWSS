@@ -3,6 +3,7 @@
 
 export class Comment {
   constructor(data) {
+    this.commentId = data.id
     this.description = data.description;
     this.commenterId = data.commenterId
     this.postId = data.postId
@@ -20,6 +21,9 @@ export class Comment {
                   ${this.description}
                 </p>
               </div>
+            </div>
+            <div class="col-1 text-end">
+            <button class="btn btn-danger" onclick="app.commentsController.deleteComment('${this.commentId}')" title="Delete this comment."><i class="mdi mdi-trash-can-outline"></i></button>
             </div>
     `
   }

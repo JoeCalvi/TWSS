@@ -62,7 +62,7 @@ export class Post {
                       data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">New Comment</button>
                   </div>
               </div>      
-          <div class="row justify-content-start mb-3" id="comments-section">
+          <div class="row justify-content-start align-items-center mb-3" id="comments-section">
             
           </div>
         </div>

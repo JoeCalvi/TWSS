@@ -27,7 +27,6 @@ export class CommentsController{
 
   async createComment(postId){
     try {
-    
       // @ts-ignore
       window.event.preventDefault()
       // @ts-ignore
@@ -41,6 +40,15 @@ export class CommentsController{
     } catch (error) {
       console.error(error)
       Pop.error(error.message)
+    }
+  }
+
+  async deleteComment(commentId) {
+    try {
+      await commentsService.deleteComment(commentId)
+    } catch (error) {
+      console('[deleteComment error]')
+      Pop.error(error)
     }
   }
 }
