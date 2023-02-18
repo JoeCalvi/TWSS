@@ -17,3 +17,17 @@ PostSchema.virtual('Poster', {
   localField: 'posterId',
   foreignField: '_id'
 })
+
+PostSchema.virtual('upvotes', {
+  ref: 'Upvoter',
+  localField: '_id',
+  foreignField: 'postId',
+  count: true
+})
+
+PostSchema.virtual('downvotes', {
+  ref: 'Downvoter',
+  localField: '_id',
+  foreignField: 'postId',
+  count: true
+})
