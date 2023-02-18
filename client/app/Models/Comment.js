@@ -15,7 +15,7 @@ export class Comment {
             <div class="col-2 ms-3 my-3">
               <img src="${this.commenter?.picture}" alt="" class="rounded-circle all-posts-img">
             </div>
-            <div class="col-8 d-flex align-items-center">
+            <div class="col-8 d-flex align-items-center glass-card rounded p-4">
               <div class="text-start">
                 <p>
                   ${this.description}
