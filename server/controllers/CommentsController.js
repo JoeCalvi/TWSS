@@ -5,23 +5,12 @@ import BaseController from "../utils/BaseController.js"
 
 export class CommentsController extends BaseController{
   constructor(){
-    super('api/posts')
+    super('api/comments')
     this.router
-    .get('/:postId/comments', this.getPostComments)
-    .get('/:postId/comments/commentId', this.getSpecificComment)
-    // .use(Auth0Provider.getAuthorizedUserInfo)
-    .post('/:postId/comments', this.createComment)
-    .delete('/:postId/comments/commentId', this.deleteComment)
-  }
-
-  async getPostComments(req, res, next){
-    try {
-      const postId = req.params.postId
-      const comments = await commentsService.getPostComments(postId)
-      res.send(comments)
-    } catch (error) {
-      next(error)
-    }
+    .get('/comments/:commentId', this.getSpecificComment)
+    .use(Auth0Provider.getAuthorizedUserInfo)
+    .post('', this.createComment)
+    .delete('/:commentId', this.deleteComment)
   }
 
   async getSpecificComment(req, res, next){
