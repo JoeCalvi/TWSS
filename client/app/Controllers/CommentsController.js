@@ -25,14 +25,19 @@ export class CommentsController{
     }
   }
 
-  async createComment(){
+  async createComment(postId){
     try {
+    
       // @ts-ignore
       window.event.preventDefault()
       // @ts-ignore
       let form = window.event.target
       let commentBody = getFormData(form)
+      // @ts-ignore
+      commentBody.postId = postId
       await commentsService.createComment(commentBody)
+      // @ts-ignore
+      form.reset()
     } catch (error) {
       console.error(error)
       Pop.error(error.message)
