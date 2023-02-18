@@ -148,7 +148,7 @@
 
   <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
     <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
+      <h5 class="offcanvas-title" id="offcanvasRightLabel">New Post</h5>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body" id="new-post-form">
@@ -178,6 +178,23 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- SECTION new comment offcanvas -->
+
+  <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+    <div class="offcanvas-header">
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body small">
+      <form onsubmit="app.commentsController.createComment()">
+        <div class="mb-3">
+          <label for="comment" class="form-label">New Comment</label>
+          <input type="text" class="form-control" name="description" id="description" aria-describedby="comment">
+        </div>
+        <button type="submit" class="btn btn-primary" data-bs-dismiss="offcanvas">Submit</button>
+      </form>
     </div>
   </div>
 

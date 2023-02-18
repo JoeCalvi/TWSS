@@ -44,7 +44,7 @@ export class Post {
           </div>
           <div class="text-end mb-3">
           <button class="btn btn-primary" title="New Comment" type="button"
-          aria-controls="offcanvasRight"><span class="mdi mdi-pencil-box-outline"></span></button>
+          data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom"><span class="mdi mdi-pencil-box-outline"></span></button>
             <button class="btn btn-danger" onclick="app.postsController.deletePost('${this.postId}')"><span class="mdi mdi-trash-can-outline"></span></button>
             </div>
           <div class="row justify-content-start mb-3" id="comments-section">
