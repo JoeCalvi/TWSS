@@ -8,7 +8,6 @@ export class Post {
     this.description = data.description;
     this.poster = data.Poster
     this.posterId = data.posterId;
-    // this.posterImage = data.Poster.picture
     this.tag = data.tag;
   }
 
