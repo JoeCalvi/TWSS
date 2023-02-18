@@ -21,6 +21,7 @@ class PostsService {
   }
   async createPosts(body) {
     const newPost = await dbContext.Posts.create(body)
+    await newPost.populate('Poster upvotes downvotes', 'name picture')
     return newPost
   }
   async getPosts() {
