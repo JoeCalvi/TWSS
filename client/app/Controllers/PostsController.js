@@ -14,8 +14,8 @@ function _drawAllPosts(){
 export class PostsController{
   constructor(){
     console.log("Hello from the PostsController");
-    this.getAllPosts()
-    appState.on('posts', _drawAllPosts)
+    // this.getAllPosts()
+    // appState.on('posts', _drawAllPosts)
   }
 
   async getAllPosts(){
