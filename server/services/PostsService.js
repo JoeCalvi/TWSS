@@ -25,6 +25,7 @@ class PostsService {
   }
   async getPosts() {
     const posts = await dbContext.Posts.find()
+      .populate('Poster', 'name picture')
     return posts
   }
 
