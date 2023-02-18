@@ -28,75 +28,63 @@ export class Post {
 
 
   get ActivePostTemplate() {
-    return `
+    return /*html*/ `
     <div class="row">
         <div class="col-12">
-          <div class="row p-3">
-            <div class="col-2">
-              <img src="${this.poster?.picture}" alt="" class="rounded-circle">
-            </div>
-            <div class="col-10 ps-3 d-flex justify-content-between align-items-center">
-              <div class="text-center">
-                <h4>
-                  ${this.title}
-                </h4>
-              </div>
-              <div class="text-center">
-                <div class="fs-3">
-                  <span class="mdi mdi-arrow-up-bold-outline"></span>
+            <div class="row p-3">
+                <div class="col-2">
+                   <img src="${this.poster?.picture}" alt="" class="rounded-circle">
                 </div>
-                <div class="fs-3">
-                  <span class="mdi mdi-arrow-down-bold-outline"></span>
+                <div class="col-8 ps-3 d-flex justify-content-evenly align-items-center">
+                    <div class="normal-text">
+                        <h2>${this.title}</h2>
+                    </div>
                 </div>
+                <div class="col-2 d-flex justify-content-end">
+                    <div class="fs-3">
+                        <i class="mdi mdi-arrow-up-bold-outline selectable" title="Upvote this post."></i>
+                          <br>
+                        <i class="mdi mdi-arrow-down-bold-outline selectable" title="Downvote this post."></i>
+                    </div>
+                </div>
+              </div>  
+              <div class="row justify-content-end align-items-center">
+                  <div class="col-10 glass-card rounded p-3 my-3 text-center">
+                      <p class="fs-5">${this.description}</p>
+                  </div>
+                  <div class="col-1 d-flex justify-content-end">
+                  <button class="btn btn-danger" onclick="app.postsController.deletePost('${this.postId}')" title="Delete this post."><i class="mdi mdi-trash-can-outline"></i></button>
+                  </div>
               </div>
-            </div>
-          </div>
-          <div class="row justify-content-center">
-            <div class="col-10 border border-dark p-3 my-3">
-              <p>
-                ${this.description}
-              </p>
-            </div>
-          </div>
-          <div class="text-end mb-3">
-          <button class="btn btn-primary" title="New Comment" type="button"
-          data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom"><span class="mdi mdi-pencil-box-outline"></span></button>
-            <button class="btn btn-danger" onclick="app.postsController.deletePost('${this.postId}')"><span class="mdi mdi-trash-can-outline"></span></button>
-            </div>
+              <div class="row my-3 justify-content-end">
+                  <div class="text-center">
+                    <button class="btn btn-primary" title="New Comment" type="button"
+                      data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">New Comment</button>
+                  </div>
+              </div>      
           <div class="row justify-content-start mb-3" id="comments-section">
             
           </div>
         </div>
-        <div class="p-2">
       </div>
-      </div>
+    </div>
     `
   }
 
   get AllPostsTemplate() {
     return `
     
-        <div class="col-10 my-3 ms-2 p-3 glass-card rounded" onclick="app.postsController.setActivePost('${this.postId}')">
+        <div class="col-10 my-3 ms-2 p-3 glass-card rounded selectable" onclick="app.postsController.setActivePost('${this.postId}')">
           <div class="row">
             <div class="col-2">
               <img src="${this.poster?.picture}" alt="" class="rounded-circle all-posts-img">
             </div>
-            <div class="col-9 ps-3 d-flex justify-content-between align-items-center selectable">
-              <div class="text-center">
-                <h4>
+            <div class="col-10 ps-3 d-flex justify-content-between align-items-center">
+              <div class="text-center normal-text">
+                <h3>
                   ${this.title}
-                </h4>
+                </h3>
               </div>
-            </div>
-            <div class="col-1">
-                <div class="text-center">
-                  <div class="fs-3 selectable">
-                    <span class="mdi mdi-arrow-up-bold-outline"></span>
-                  </div>
-                  <div class="fs-3 selectable">
-                    <span class="mdi mdi-arrow-down-bold-outline"></span>
-                  </div>
-                </div>
             </div>
           </div>
         </div>

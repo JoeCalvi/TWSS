@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="assets/style/main.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Carter+One&family=Yrsa&display=swap" rel="stylesheet">
   <title>TWSS</title>
 </head>
 
@@ -154,26 +154,28 @@
     <div class="offcanvas-body" id="new-post-form">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-6">
+          <div class="col-12">
             <form onsubmit="app.postsController.createPost()">
               <div class="mb-3">
                 <label for="title" class="form-label">Post Title</label>
-                <input type="text" class="form-control" name="title" id="title" aria-describedby="post-title">
+                <input type="text" class="form-control normal-text" name="title" id="title" aria-describedby="post-title">
               </div>
               <div class="mb-3">
                 <label for="description" class="form-label">New Post</label>
-                <div>
+                <div class="normal-text">
                   <textarea name="description" id="description" cols="40" rows="10"></textarea>
                 </div>
               </div>
-              <select class="form-select mb-3" aria-label="tag-select" id="tag" name="tag">
+              <select class="form-select mb-3 normal-text" aria-label="tag-select" id="tag" name="tag">
                 <option selected>Select Tag</option>
                 <option value="family">Family</option>
                 <option value="housework">Housework</option>
                 <option value="friends">Friends</option>
                 <option value="job">Job</option>
               </select>
-              <button type="submit" class="btn btn-primary" data-bs-dismiss="offcanvas">Submit</button>
+              <div class="text-end">
+                <button type="submit" class="btn btn-primary" data-bs-dismiss="offcanvas">Submit</button>
+              </div>
             </form>
           </div>
         </div>
@@ -183,7 +185,7 @@
 
   <!-- SECTION new comment offcanvas -->
 
-  <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+  <div class="offcanvas offcanvas-bottom new-post-form" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
     <div class="offcanvas-header">
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
@@ -191,7 +193,7 @@
       <form onsubmit="app.commentsController.createComment(`${appState.activePost.postId}`)">
         <div class="mb-3">
           <label for="comment" class="form-label">New Comment</label>
-          <input type="text" class="form-control" name="description" id="description" aria-describedby="comment">
+          <input type="text" class="form-control normal-text" name="description" id="description" aria-describedby="comment">
         </div>
         <button type="submit" class="btn btn-primary" data-bs-dismiss="offcanvas">Submit</button>
       </form>
