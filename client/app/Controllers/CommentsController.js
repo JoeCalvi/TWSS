@@ -8,9 +8,9 @@ export class CommentsController{
     
   }
 
-  async getAllComments() {
+  async getCommentsByPostId(postId) {
     try {
-      await commentsService.getAllComments()
+      await commentsService.getCommentsByPostId(postId)
     } catch (error) {
       console.error(error)
       Pop.error(error.message)

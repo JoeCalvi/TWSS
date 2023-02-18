@@ -49,6 +49,8 @@ export class PostsController {
       let form = window.event.target;
       let postBody = getFormData(form);
       await postsService.createPost(postBody)
+      // @ts-ignore
+      form.reset()
     } catch (error) {
       console.error(error)
       Pop.error(error.message)

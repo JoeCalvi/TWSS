@@ -4,7 +4,7 @@
 export class Comment {
   constructor(data){
     this. description = data.description;
-    this.commentorId = data.commentorId
+    this.commenterId = data.commenterId
     this.postId = data.postId
   }
 }
