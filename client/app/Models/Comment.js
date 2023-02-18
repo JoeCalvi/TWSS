@@ -6,18 +6,18 @@ export class Comment {
     this.description = data.description;
     this.commenterId = data.commenterId
     this.postId = data.postId
+    this.commenter = data.Commenter
   }
 
   get CommentsTemplate() {
     return /*html*/ `
-    <div class="col-2 ms-3">
-              <img src="https://via.placeholder.com/50" alt="" class="rounded-circle">
+            <div class="col-2 ms-3">
+              <img src="${this.commenter?.picture}" alt="" class="rounded-circle all-posts-img">
             </div>
-            <div class="col-8">
+            <div class="col-8 d-flex align-items-center">
               <div class="text-start">
                 <p>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi officiis molestias mollitia? Rerum
-                  recusandae accusamus labore a, that's what she said!
+                  ${this.description}
                 </p>
               </div>
             </div>

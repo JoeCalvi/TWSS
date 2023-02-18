@@ -1,10 +1,12 @@
 
 import { appState } from "../AppState.js";
 import { Post } from "../Models/Post.js";
+import { commentsService } from "../Services/CommentsService.js";
 import { postsService } from "../Services/PostsService.js";
 import { getFormData } from "../Utils/FormHandler.js";
 import { Pop } from "../Utils/Pop.js";
 import { setHTML } from "../Utils/Writer.js";
+import { CommentsController } from "./CommentsController.js";
 
 
 function _drawAllPosts() {
@@ -71,7 +73,8 @@ export class PostsController {
   async setActivePost(postId) {
     try {
       await postsService.setActivePost(postId)
-      _drawActivePost()
+      await _drawActivePost()
+      await commentsService.getCommentsByPostId(postId)
     } catch (error) {
       console.error(error)
       Pop.error(error.message)
