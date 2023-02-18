@@ -2,8 +2,8 @@
 
 
 class CommentsService{
-  constructor(){
-
+  async getAllComments() {
+    
   }
 }
 
