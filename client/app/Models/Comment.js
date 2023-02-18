@@ -14,7 +14,7 @@ export class Comment {
     return /*html*/ `
             <div class="col-2 ms-3 my-3">
               <img src="${this.commenter?.picture}" alt="" class="rounded-circle all-posts-img">
-              <span class="fs-5 ps-3">${this.commenter?.name}</span>
+              <span class="fs-5 ps-3 normal-text">${this.commenter?.name}</span>
             </div>
             <div class="col-8 d-flex align-items-center glass-card rounded p-4">
               <div class="text-start">
