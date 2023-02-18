@@ -12,7 +12,10 @@ class PostsService {
     appState.emit('posts')
   }
   async setActivePost(postId) {
-    console.log("Active Post", postId);
+    let activePost = appState.posts.find(p => p.postId == postId)
+    // @ts-ignore
+    appState.activePost = activePost
+    console.log("Active Post", appState.activePost);
   }
   async createPost(postBody) {
     const res = await server.post('api/posts', postBody);
