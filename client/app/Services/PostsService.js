@@ -4,6 +4,14 @@ import { server } from "./AxiosService.js"
 
 
 class PostsService {
+  async downvote(postId) {
+    const res = await server.post('api/voters/downvoters', {postId})
+    appState.activePost.downvotes++
+  }
+  async upvote(postId) {
+    const res = await server.post('api/voters/upvoters', {postId})
+    appState.activePost.upvotes++
+  }
   async deletePost(postId) {
     const res = await server.delete('api/posts/' + postId);
     console.log("DELETED THIS POST", res.data);

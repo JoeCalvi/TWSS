@@ -21,12 +21,12 @@ class PostsService {
   }
   async createPosts(body) {
     const newPost = await dbContext.Posts.create(body)
-    await newPost.populate('Poster upvotes downvotes', 'name picture')
+    await newPost.populate('Poster upvotes downvotes', 'name picture upvoterId downvoterId')
     return newPost
   }
   async getPosts() {
     const posts = await dbContext.Posts.find()
-      .populate('Poster upvotes downvotes', 'name picture')
+      .populate('Poster upvotes downvotes', 'name picture upvoterId downvoterId')
     return posts
   }
 

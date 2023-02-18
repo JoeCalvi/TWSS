@@ -10,6 +10,10 @@ export class Post {
     this.poster = data.Poster
     this.posterId = data.posterId;
     this.tag = data.tag;
+    this.upvoters = data.upvotes;
+    this.downvoters = data.downvotes;
+    this.upvotes = this.upvoters.length;
+    this.downvotes = this.downvoters.length;
   }
 
   get CommentFormTemplate() {
@@ -33,7 +37,7 @@ export class Post {
         <div class="col-12">
             <div class="row p-3">
                 <div class="col-2">
-                  <img src="${this.poster?.picture}" alt="" class="rounded-circle">
+                  <img src="${this.poster?.picture}" alt="" class="rounded-circle poster-img">
                   <span class="fs-4 ps-3">${this.poster?.name}</span>
                 </div>
                 <div class="col-8 ps-3 d-flex justify-content-evenly align-items-center">
@@ -41,11 +45,15 @@ export class Post {
                         <h2>${this.title}</h2>
                     </div>
                 </div>
-                <div class="col-2 d-flex justify-content-end">
+                <div class="col-2 d-flex justify-content-end align-items-center">
+                    <div class="d-flex flex-column pe-3">
+                        <span class="fs-3" id="postUpvotes">${this.upvotes}</span>
+                        <span class="fs-3" id="postDownvotes">${this.downvotes}</span>
+                    </div>
                     <div class="fs-3">
-                        <i class="mdi mdi-arrow-up-bold-outline selectable" title="Upvote this post."></i>
+                        <i class="mdi mdi-arrow-up-bold-outline selectable" title="Upvote this post." onclick="app.postsController.upvote('${this.postId}')"></i>
                           <br>
-                        <i class="mdi mdi-arrow-down-bold-outline selectable" title="Downvote this post."></i>
+                        <i class="mdi mdi-arrow-down-bold-outline selectable" title="Downvote this post." onclick="app.postsController.downvote('${this.postId}')"></i>
                     </div>
                 </div>
               </div>  

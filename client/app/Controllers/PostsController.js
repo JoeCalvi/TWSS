@@ -21,6 +21,16 @@ function _drawActivePost() {
   setHTML('main-body-content', activePost.ActivePostTemplate)
 }
 
+function _drawUpvotes(){
+  let activePost = appState.activePost
+  setHTML('postUpvotes', activePost.upvotes)
+}
+
+function _drawDownvotes(){
+  let activePost = appState.activePost
+  setHTML('postDownvotes', activePost.downvotes)
+}
+
 
 
 export class PostsController {
@@ -78,6 +88,26 @@ export class PostsController {
     } catch (error) {
       console.error(error)
       Pop.error(error.message)
+    }
+  }
+
+  async upvote(postId){
+    try {
+      await postsService.upvote(postId)
+      _drawUpvotes()
+    } catch (error) {
+      console.error(error)
+      Pop.error(error.message)
+    }
+  }
+
+  async downvote(postId){
+    try {
+      await postsService.downvote(postId)
+      _drawDownvotes()
+    } catch (error) {
+      console.error(error)
+      Pop.error(error.messaGge)
     }
   }
 }

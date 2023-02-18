@@ -14,7 +14,7 @@ export class VotersController extends BaseController {
   async beDownVoter(req, res, next) {
     try {
       const user = req.userInfo
-      req.body.voterId = user.id
+      req.body.downvoterId = user.id
       const voter = await votersService.beDownVoter(req.body)
       return res.send(voter)
     } catch (error) {
@@ -25,7 +25,7 @@ export class VotersController extends BaseController {
   async beUpVoter(req, res, next) {
     try {
       const user = req.userInfo
-      req.body.voterId = user.id
+      req.body.upvoterId = user.id
       const voter = await votersService.beUpVoter(req.body)
       return res.send(voter)
     } catch (error) {
