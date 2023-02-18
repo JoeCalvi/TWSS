@@ -3,6 +3,13 @@ import { dbContext } from '../db/DbContext.js'
 // IMPORTANT profiles should not be updated or modified in any way here. Use the AccountService
 
 class ProfileService {
+  async editProfile(id, editInfo) {
+    const profile = await dbContext.Account.findById(id)
+    profile.name = editInfo.name
+    profile.picture = editInfo.picture
+    profile.save()
+    return profile
+  }
   /**
     * Returns a user profile from its id
     * @param {string} id
