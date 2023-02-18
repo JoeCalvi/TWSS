@@ -12,7 +12,7 @@ class PostsService {
   }
   async getPostById(postId) {
     const post = await dbContext.Posts.findById(postId)
-    // .populate('Poster', 'name picture')
+      .populate('Poster', 'name picture')
     // .populate('')
     if (!post) {
       throw new BadRequest("Post Not Found")
