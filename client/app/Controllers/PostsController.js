@@ -57,7 +57,9 @@ export class PostsController {
 
   async deletePost(postId) {
     try {
-      await postsService.deletePost(postId)
+      if(await Pop.confirm('Are you sure that you wish to delete your post?')){
+        await postsService.deletePost(postId)
+      }
     } catch (error) {
       console.error(error)
       Pop.error(error.message)
