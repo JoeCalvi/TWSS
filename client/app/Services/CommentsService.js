@@ -4,6 +4,12 @@ import { appState } from "../AppState.js";
 import { Comment } from "../Models/Comment.js";
 import { server } from "./AxiosService.js";
 class CommentsService{
+  async editComment(commentId, commentData) {
+    const res = await server.put(`api/comments/${commentId}`, commentData)
+    let oldCommentIndex = appState.comments.findIndex(c => c.commentId == commentId)
+    appState.comments.splice(oldCommentIndex, 1, new Comment(res.data))
+    appState.emit('comments')
+  }
   async createComment(commentBody) {
     const res = await server.post('api/comments', commentBody)
     appState.comments.push(new Comment(res.data))

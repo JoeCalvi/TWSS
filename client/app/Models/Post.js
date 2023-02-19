@@ -20,7 +20,7 @@ export class Post {
     return `
   <form onsubmit="app.commentsController.createComment('${
       // @ts-ignore
-      appState.activePost.postId}'')">
+      appState.activePost.postId}')">
   <div class="mb-3">
     <label for="comment" class="form-label">New Comment</label>
     <input type="text" class="form-control" name="description" id="description" aria-describedby="comment">
@@ -29,7 +29,6 @@ export class Post {
 </form>
   `
   }
-
 
   get ActivePostTemplate() {
     return /*html*/ `

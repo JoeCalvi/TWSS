@@ -50,7 +50,21 @@ export class CommentsController{
       }
     } catch (error) {
       console.error('[deleteComment error]')
-      Pop.error(error)
+      Pop.error(error.message)
+    }
+  }
+
+  async editComment(commentId){
+    try {
+      window.event.preventDefault()
+      let form = window.event.target
+      let commentData = getFormData(form)
+      await commentsService.editComment(commentId, commentData)
+      // @ts-ignore
+      form.reset()
+    } catch (error) {
+      console.error(error)
+      Pop.error(error.message)
     }
   }
 }
