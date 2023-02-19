@@ -11,6 +11,7 @@ export class CommentsController extends BaseController{
     .use(Auth0Provider.getAuthorizedUserInfo)
     .post('', this.createComment)
     .delete('/:commentId', this.deleteComment)
+    .put('/:commentId', this.editComment)
   }
 
   async getSpecificComment(req, res, next){
@@ -38,12 +39,25 @@ export class CommentsController extends BaseController{
   async deleteComment(req, res, next){
     try {
       const user = req.userInfo
-      const commenterId = user.id
+      const userId = user.id
       const commentId = req.params.commentId
-      const comment = await commentsService.deleteComment(commentId, commenterId)
+      const comment = await commentsService.deleteComment(commentId, userId)
       res.send(comment)
     } catch (error) {
-      
+      next(error)
+    }
+  }
+
+  async editComment(req, res, next){
+    try {
+      const user = req.userInfo
+      const userId = user.id
+      const commentId = req.params.commentId
+      const commentData = req.body
+      const comment = await commentsService.editComment(commentId, userId, commentData)
+      res.send(comment)
+    } catch (error) {
+      next(error)
     }
   }
 }

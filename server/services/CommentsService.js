@@ -3,9 +3,19 @@ import { BadRequest } from "../utils/Errors.js"
 
 
 class CommentsService{
-  async deleteComment(commentId, commenterId) {
+  async editComment(commentId, userId, commentData) {
+    const commentToEdit = await dbContext.Comments.findById(commentId)
+    if(commentToEdit.commenterId == userId){
+      commentToEdit.description = commentData.description
+    }else{
+      throw new BadRequest("That's not your comment!")
+    }
+    commentToEdit.save()
+    return commentToEdit
+  }
+  async deleteComment(commentId, userId) {
     const commentToDelete = await dbContext.Comments.findById(commentId)
-    if(commentToDelete.commenterId == commenterId){
+    if(commentToDelete.commenterId == userId){
       await commentToDelete.remove()
     }else{
       throw new BadRequest("That's not your comment!")
